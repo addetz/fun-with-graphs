@@ -1,2 +1,2 @@
-# fun-with-graphs
-Messing around with Graphs in Go
+# fun-with-puzzles
+Messing around with Graphs and other coding problems in Go
