@@ -1,6 +1,6 @@
 package main
 
-import "fmt"
+import utils "github.com/fun-with-graphs/daily-coding-problem"
 
 /**
 Given an array of integers, return a new array such that each element at index
@@ -16,18 +16,10 @@ Follow-up: what if you can't use division?
 func main() {
     input1 := []int{3,2,1}
     input2 := []int{1,2,3,4,5}
-    print("Input", input1)
-    print("Output", product(input1))
-    print("Input", input2)
-    print("Output", product(input2))
-}
-
-func print(text string, output []int) {
-    fmt.Printf("%s: \n", text)
-    for _, v := range output {
-        fmt.Printf(" %d ", v)
-    }
-    fmt.Printf("\n")
+    utils.PrintInt("Input", input1)
+    utils.PrintInt("Output", product(input1))
+    utils.PrintInt("Input", input2)
+    utils.PrintInt("Output", product(input2))
 }
 
 func product(input []int) []int {
