@@ -1,6 +1,6 @@
 package main
 
-import utils "github.com/fun-with-graphs/daily-coding-problem"
+import utils "github.com/fun-with-graphs/puzzles"
 
 /**
 Given an array of integers, return a new array such that each element at index

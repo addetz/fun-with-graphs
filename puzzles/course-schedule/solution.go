@@ -17,7 +17,7 @@ func canFinish(numCourses int, prerequisites [][]int) bool {
     return !contains_cycle(g, numCourses)
 }
 
-func contains_cycle(g * graph, n int) bool {
+func contains_cycle(g *graph, n int) bool {
     visited := make([]int, n)
     for i := 0; i < n; i++ {
         if hasCycle(g,i, visited) {

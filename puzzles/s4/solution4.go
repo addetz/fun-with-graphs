@@ -2,7 +2,7 @@ package main
 
 import (
     "container/heap"
-    utils "github.com/fun-with-graphs/daily-coding-problem"
+    utils "github.com/fun-with-graphs/puzzles"
 )
 
 /***

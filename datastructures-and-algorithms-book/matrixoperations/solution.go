@@ -1,6 +1,6 @@
 package main
 
-import utils "github.com/fun-with-graphs/daily-coding-problem"
+import utils "github.com/fun-with-graphs/puzzles"
 
 func main() {
     m1 := [][]int {{1,2}, {3,4}}
