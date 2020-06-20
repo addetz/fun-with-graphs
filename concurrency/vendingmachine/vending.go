@@ -5,7 +5,13 @@ import (
     "sync"
 )
 
-// vending machine with no change but working on concurrent routines
+/*
+Design a vending machine that will take coins as input and chocolate as output.
+
+Let's imagine that Gophers have coins of value 1, 2 and 5.
+Gopher can choose the item and then has to insert money and
+wait for the vending machine to dispense the item.
+ */
 func main() {
     coins := []int{1,2,5}
 
