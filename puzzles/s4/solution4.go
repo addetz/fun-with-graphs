@@ -1,8 +1,9 @@
 package main
 
 import (
-    "container/heap"
-    utils "github.com/fun-with-graphs/puzzles"
+	"container/heap"
+
+	utils "github.com/fun-with-graphs/puzzles"
 )
 
 /***
@@ -21,50 +22,50 @@ since we remove and append to the heap K * N times.
 */
 
 func main() {
-    input := [][]int{{10, 15, 30}, {12, 15, 20}, {17, 20, 32}}
-    output := make([]int, 0)
-    var tHeap *tupleHeap = &tupleHeap{}
+	input := [][]int{{10, 15, 30}, {12, 15, 20}, {17, 20, 32}}
+	output := make([]int, 0)
+	tHeap := &tupleHeap{}
 
-    //Initialize the heap.
-    heap.Init(tHeap)
-    fcol := initFirstCol(input)
-    for _, f := range fcol {
-        heap.Push(tHeap, f)
-    }
+	//Initialize the heap.
+	heap.Init(tHeap)
+	fcol := initFirstCol(input)
+	for _, f := range fcol {
+		heap.Push(tHeap, f)
+	}
 
-    // While the heap is not empty we need to:
-    // Extract the minimum element from the heap: (value, list index, element index)
-    // If the element index is not at the last index, add the next tuple in the list index.
-    currentIndex := 0
-    for tHeap.Len() != 0 {
-        //Take min elem from the list
-        p := heap.Pop(tHeap)
-        cval := p.(*tuple)
-        output = append(output, cval.val)
-        //Is there another elem at this row?
-        if cval.col < len(input[cval.row]) - 1 {
-            nelem := &tuple{
-                val: input[cval.row][cval.col+1],
-                row: cval.row,
-                col: cval.col+1,
-            }
-            heap.Push(tHeap, nelem)
-        }
-        currentIndex++
-    }
+	// While the heap is not empty we need to:
+	// Extract the minimum element from the heap: (value, list index, element index)
+	// If the element index is not at the last index, add the next tuple in the list index.
+	currentIndex := 0
+	for tHeap.Len() != 0 {
+		//Take min elem from the list
+		p := heap.Pop(tHeap)
+		cval := p.(*tuple)
+		output = append(output, cval.val)
+		//Is there another elem at this row?
+		if cval.col < len(input[cval.row])-1 {
+			nelem := &tuple{
+				val: input[cval.row][cval.col+1],
+				row: cval.row,
+				col: cval.col + 1,
+			}
+			heap.Push(tHeap, nelem)
+		}
+		currentIndex++
+	}
 
-    utils.PrintIntMatrix("Input", input)
-    utils.PrintInt("Sorted output", output)
+	utils.PrintIntMatrix("Input", input)
+	utils.PrintInt("Sorted output", output)
 }
 
 func initFirstCol(input [][]int) []*tuple {
-    fcol := make([]*tuple, len(input))
-    for i, v := range input {
-        fcol[i] = &tuple{
-            val: v[0],
-            row: i,
-            col: 0,
-        }
-    }
-    return fcol
+	fcol := make([]*tuple, len(input))
+	for i, v := range input {
+		fcol[i] = &tuple{
+			val: v[0],
+			row: i,
+			col: 0,
+		}
+	}
+	return fcol
 }
